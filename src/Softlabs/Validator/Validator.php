@@ -1,5 +1,8 @@
 <?php namespace Softlabs\Validator;
 
+use Illuminate\Http\Input;
+use Illuminate\Validate\Validator as IValidator;
+
 abstract class Validator
 {
     /**
@@ -16,30 +19,32 @@ abstract class Validator
     protected $messages;
 
     /**
-     * Called when the validator should construct itself. The validator
-     * @param array $rules An alternative set of rules for the
-     * validator to use.
-     * @param array $messages An alternative set of messages for the
-     * validator to use.
+     * Called when the validator should construct itself.
+     * @param array $rules An set of rules for the validator to use.
+     * @param array $messages An set of messages for the validator to use.
      * @param  boolean $merge Merges specified rules and messages with
      * the originals instead of replacing them.
      */
     public function __construct($rules=null, $messages=null, $merge=false)
     {
         if ( ! is_null($rules)) {
-            $this->rules = $merge
-                ? array_merge($this->rules, $rules)
-                : $this->replaceRules($rules);
+            if (true === $merge) {
+                $this->rules = array_merge($this->rules, $rules);
+            } else {
+                $this->rules = $rules;
+            }
         } else {
-            $this->rules = [];
+            $this->rules = $this->rules ?: [];
         }
 
         if ( ! is_null($messages)) {
-            $this->messages = $merge
-                ? array_merge($this->messages, $messages)
-                : $this->replaceMessages($messages);
+            if (true === $merge) {
+                $this->messages = array_merge($this->messages, $messages);
+            } else {
+                $this->messages = $messages;
+            }
         } else {
-            $this->messages = [];
+            $this->messages = $this->messages ?: [];
         }
     }
 
@@ -86,12 +91,18 @@ abstract class Validator
     public function validate($input=null)
     {
         // Retrieve input if no input was specified.
-        $input = $input ?: \Input::all();
+        $input = $input ?: Input::all();
 
-        $result = \Validator::make($input, $this->rules, $this->messages);
+        if (is_null($input)) {
+            throw new InvalidInputException(
+                'The input specified to validate was null and/or no input could be found.'
+            );
+        }
+
+        $result = IValidator::make($input, $this->rules, $this->messages);
 
         if ($result->fails()) {
-            return $result->messages()->toArray();
+           return $result->messages()->toArray();
         }
 
         // Return an empty array if the validator did not fail.
