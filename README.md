@@ -1,7 +1,5 @@
-softlabs-laravel
+Softlabs Packages
 ================
-
-# Softlabs Packages
 
 This is the **first working version** of Softlabs Packages. It contains the following packages:
 
