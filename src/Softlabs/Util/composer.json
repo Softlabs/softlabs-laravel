@@ -1,0 +1,24 @@
+{
+    "name": "softlabs/util",
+    "description": "A utility library.",
+    "authors": [
+        {
+            "name": "Matthew Erskine",
+            "email": "matthew.erskine@softlabs.co.uk"
+        },
+        {
+            "name": "Thomas Stuttard",
+            "email": "thomas.stuttard@softlabs.co.uk"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+    },
+    "autoload": {
+        "psr-0": {
+            "Softlabs\\Util": ""
+        }
+    },
+    "target-dir": "Softlabs/Util",
+    "minimum-stability": "dev"
+}
