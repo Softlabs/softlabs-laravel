@@ -19,6 +19,11 @@
             "Softlabs\\Util": ""
         }
     },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "dev"
+        }
+    },
     "target-dir": "Softlabs/Util",
     "minimum-stability": "dev"
 }

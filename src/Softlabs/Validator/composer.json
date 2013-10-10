@@ -22,6 +22,11 @@
             "Softlabs\\Validator": ""
         }
     },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "dev"
+        }
+    },
     "target-dir": "Softlabs/Validator",
     "minimum-stability": "dev"
 }
