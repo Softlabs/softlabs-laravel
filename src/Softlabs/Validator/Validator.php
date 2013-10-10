@@ -91,7 +91,7 @@ abstract class Validator
     public function validate($input=null)
     {
         // Retrieve input if no input was specified.
-        $input = $input ?: Input::all();
+        $input = $input ?: \Input::all();
 
         if (is_null($input)) {
             throw new InvalidInputException(
@@ -99,7 +99,7 @@ abstract class Validator
             );
         }
 
-        $result = IValidator::make($input, $this->rules, $this->messages);
+        $result = \Validator::make($input, $this->rules, $this->messages);
 
         if ($result->fails()) {
            return $result->messages()->toArray();
