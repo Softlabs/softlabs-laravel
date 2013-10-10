@@ -13,6 +13,7 @@
     },
     "replace": {
         "softlabs/cur": "self.version",
+        "softlabs/date": "self.version",
         "softlabs/util": "self.version",
         "softlabs/validator": "self.version"
     },
