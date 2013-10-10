@@ -1,14 +1,10 @@
 {
-    "name": "softlabs/util",
-    "description": "A utility library.",
+    "name": "softlabs/facades",
+    "description": "Facade registration for each package.",
     "authors": [
         {
             "name": "Matthew Erskine",
             "email": "matthew.erskine@softlabs.co.uk"
-        },
-        {
-            "name": "Thomas Stuttard",
-            "email": "thomas.stuttard@softlabs.co.uk"
         }
     ],
     "require": {
@@ -16,14 +12,14 @@
     },
     "autoload": {
         "psr-0": {
-            "Softlabs\\Util": ""
+            "Softlabs\\Facades": ""
         }
     },
+    "target-dir": "Softlabs/Facades",
     "extra": {
         "branch-alias": {
             "dev-master": "dev"
         }
     },
-    "target-dir": "Softlabs/Util",
     "minimum-stability": "dev"
 }
