@@ -11,8 +11,11 @@
          syntaxCheck="false"
 >
     <testsuites>
+        <testsuite name="Util Test Suite">
+            <directory suffix=".php">./tests/util</directory>
+        </testsuite>
         <testsuite name="Validator Test Suite">
-            <directory suffix=".php">./tests/</directory>
+            <directory suffix=".php">./tests/validator</directory>
         </testsuite>
     </testsuites>
     <php>
