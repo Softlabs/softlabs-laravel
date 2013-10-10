@@ -28,7 +28,9 @@ class UtilServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		$this->app['slutil'] = $this->app->share(function($app) {
+			return new Util();
+		});
 	}
 
 	/**
@@ -38,7 +40,7 @@ class UtilServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array();
+		return array('slutil');
 	}
 
 }
