@@ -18,7 +18,7 @@ class CurrencyServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('softlabs/cur');
+		$this->package('softlabs/currency');
 	}
 
 	/**
@@ -28,8 +28,8 @@ class CurrencyServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['cur'] = $this->app->share(function($app) {
-			return new Cur();
+		$this->app['currency'] = $this->app->share(function($app) {
+			return new Currency();
 		});
 	}
 
