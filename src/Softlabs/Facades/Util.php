@@ -2,13 +2,13 @@
 
 use Illuminate\Support\Facades\Facade;
 
-class Util extends Facade {
+class SLUtil extends Facade {
 
 	/**
 	 * Get the registered name of the component.
 	 *
 	 * @return string
 	 */
-	protected static function getFacadeAccessor() { return 'slutil'; }
+	protected static function getFacadeAccessor() { return 'util'; }
 
 }
