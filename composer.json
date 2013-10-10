@@ -12,6 +12,7 @@
         "php": ">=5.4.0"
     },
     "replace": {
+        "softlabs/cur": "self.version",
         "softlabs/util": "self.version",
         "softlabs/validator": "self.version"
     },
