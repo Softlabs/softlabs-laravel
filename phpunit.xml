@@ -11,8 +11,8 @@
          syntaxCheck="false"
 >
     <testsuites>
-        <testsuite name="Cur Test Suite">
-            <directory suffix=".php">./tests/cur</directory>
+        <testsuite name="Currency Test Suite">
+            <directory suffix=".php">./tests/currency</directory>
         </testsuite>
         <testsuite name="Date Test Suite">
             <directory suffix=".php">./tests/date</directory>

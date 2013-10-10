@@ -1,6 +1,6 @@
-<?php namespace Softlabs\Cur;
+<?php namespace Softlabs\Currency;
 
-class Cur
+class Currency
 {
 	/**
 	 * Converts a value to a presentable GBP format. An alternative

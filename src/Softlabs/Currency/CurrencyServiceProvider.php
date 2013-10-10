@@ -1,8 +1,8 @@
-<?php namespace Softlabs\Cur;
+<?php namespace Softlabs\Currency;
 
 use Illuminate\Support\ServiceProvider;
 
-class CurServiceProvider extends ServiceProvider {
+class CurrencyServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.

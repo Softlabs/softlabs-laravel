@@ -1,5 +1,5 @@
 {
-    "name": "softlabs/cur",
+    "name": "softlabs/currency",
     "description": "A currency library.",
     "authors": [
         {
@@ -12,10 +12,10 @@
     },
     "autoload": {
         "psr-0": {
-            "Softlabs\\Cur": ""
+            "Softlabs\\Currency": ""
         }
     },
-    "target-dir": "Softlabs/Cur",
+    "target-dir": "Softlabs/Currency",
     "extra": {
         "branch-alias": {
             "dev-master": "dev"
