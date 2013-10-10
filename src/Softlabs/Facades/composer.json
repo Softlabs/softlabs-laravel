@@ -1,0 +1,25 @@
+{
+    "name": "softlabs/facades",
+    "description": "Facade registration for each package.",
+    "authors": [
+        {
+            "name": "Matthew Erskine",
+            "email": "matthew.erskine@softlabs.co.uk"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+    },
+    "autoload": {
+        "psr-0": {
+            "Softlabs\\Facades": ""
+        }
+    },
+    "target-dir": "Softlabs/Facades",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "dev"
+        }
+    },
+    "minimum-stability": "dev"
+}
