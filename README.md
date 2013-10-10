@@ -3,8 +3,20 @@ Softlabs Packages
 
 This is the **first working version** of Softlabs Packages. It contains the following packages:
 
-- Validator
+- Cur
+- Date
 - Util
+- Validator
+
+-----
+
+## Cur
+The Cur library provides methods for displaying currency formats. *(See source for listing of methods)*
+
+-----
+
+## Date
+The Date library provides methods for displaying strings in date/time formats, aswell as several other helper methods. *(See source for listing of methods)*
 
 -----
 
