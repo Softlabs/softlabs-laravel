@@ -49,4 +49,35 @@ class Util
     {
         return $value < 1 ? 1 : ($value > $max ? $max: $value);
     }
+
+    /**
+     * * Retrieves a priority label based on the given value.
+     * @param  integer  $value     The value to test
+     * @param  integer $min        The minimum priority value.
+     * @param  integer $max        The maximum priority value.
+     * @param  array  $priorities An array of priorites (leave null
+     * for default: 'No', 'Low', 'Medium' and 'High')
+     * @return string priority string
+     */
+    public function priority($value, $min=1, $max=3, $priorities=null)
+    {
+        if ( ! is_null($priorities) and is_array($priorities)) {
+            foreach ($priorities as $key => $value) {
+                if ( ! is_int($key) or ! is_int($key)) {
+                    throw new \InvalidArgumentException(
+                        'The priorities array specified must have numerical keys!'
+                    );
+                }
+            }
+        }
+
+        $priorities = $priorities ?: [
+            0 => 'No',
+            1 => 'Low',
+            2 => 'Medium',
+            3 => 'High'
+        ];
+
+        return $priorities[round($value)] ?: 'No';
+    }
 }
