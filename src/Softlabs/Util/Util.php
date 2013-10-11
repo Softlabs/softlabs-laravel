@@ -78,6 +78,8 @@ class Util
             3 => 'High'
         ];
 
-        return $priorities[round($value)] ?: 'No';
+        $index = round(self::clamp($value, $min, $max));
+
+        return $priorities[$index] ?: 'No';
     }
 }
