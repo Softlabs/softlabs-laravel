@@ -37,4 +37,16 @@ class Util
 
         return 'https://en.gravatar.com/site/signup';
     }
+
+    /**
+     * Clamps the specified value between two values.
+     * @param  integer  $value The value to clamp.
+     * @param  integer $min   The minimum value that can be achieved.
+     * @param  integer $max   The maximum value that can be achieved.
+     * @return integer         Clamped value
+     */
+    public function clamp($value, $min=1, $max=100)
+    {
+        return $value < 1 ? 1 : ($value > $max ? $max: $value);
+    }
 }
