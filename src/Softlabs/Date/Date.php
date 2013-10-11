@@ -108,7 +108,7 @@ class Date
 	 */
 	public function timeAgo($date)
 	{
-	   $periods = array('Second', 'Minute', 'Hour', 'Day', 'Week', 'Month', 'Year', 'Decade');
+	   $periods = array('second', 'minute', 'hour', 'day', 'week', 'month', 'year', 'decade');
 	   $lengths = array('60','60','24','7','4.35','12','10');
 
 	   $time = strtotime($date);
