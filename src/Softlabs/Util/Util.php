@@ -72,10 +72,10 @@ class Util
         }
 
         $priorities = $priorities ?: [
-            0 => 'No',
-            1 => 'Low',
-            2 => 'Medium',
-            3 => 'High'
+            0 => 'no',
+            1 => 'low',
+            2 => 'medium',
+            3 => 'high'
         ];
 
         $index = round(self::clamp($value, $min, $max));
