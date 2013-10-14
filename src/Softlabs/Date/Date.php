@@ -106,7 +106,7 @@ class Date
 	 * @param  string $date The date to test.
 	 * @return string       The formatted date string.
 	 */
-	public function timeAgo($date)
+	public function timeAgo($date, $suffix='ago')
 	{
 	   $periods = array('second', 'minute', 'hour', 'day', 'week', 'month', 'year', 'decade');
 	   $lengths = array('60','60','24','7','4.35','12','10');
@@ -128,7 +128,7 @@ class Date
 	       $periods[$j].= "s";
 	   }
 
-	   return "$difference $periods[$j] Ago";
+	   return "$difference $periods[$j] $suffix";
 	}
 
 	/**
@@ -138,7 +138,7 @@ class Date
 	 * ago was never.
 	 * @return string       How long ago or alternative string.
 	 */
-	public function timeAgoOrNever($date, $alternative="Never")
+	public function timeAgoOrNever($date, $alternative="never")
 	{
 		if ($date == '0000-00-00 00:00:00') {
 			return $alternative;
