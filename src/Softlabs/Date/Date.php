@@ -140,7 +140,7 @@ class Date
 	 */
 	public function timeAgoOrNever($date, $alternative="never")
 	{
-		if ($date == '0000-00-00 00:00:00') {
+		if (empty($date) or is_null($date) or $date == '0000-00-00 00:00:00') {
 			return $alternative;
 		} else {
 			return self::timeAgo($date);
