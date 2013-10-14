@@ -47,7 +47,7 @@ class Util
      */
     public function clamp($value, $min=1, $max=100)
     {
-        return $value < 1 ? 1 : ($value > $max ? $max: $value);
+        return $value < $min ? $min : ($value > $max ? $max : $value);
     }
 
     /**
