@@ -146,4 +146,26 @@ class Date
 			return self::timeAgo($date);
 		}
 	}
+
+    /**
+     * Calculates the time zone offset between time zones.
+     * @param  string $remote_tz The remote time zone.
+     * @param  string $origin_tz Origin time zone.
+     * @return int       Time zone offset in seconds.
+     */
+    public function timezoneOffset($remote_tz, $origin_tz = null) {
+        if($origin_tz === null) {
+            if(!is_string($origin_tz = date_default_timezone_get())) {
+                return false;
+            }
+        }
+        $origin_dtz = new DateTimeZone($origin_tz);
+        $remote_dtz = new DateTimeZone($remote_tz);
+        $origin_dt = new DateTime("now", $origin_dtz);
+        $remote_dt = new DateTime("now", $remote_dtz);
+        $offset = $origin_dtz->getOffset($origin_dt) - $remote_dtz->getOffset($remote_dt);
+        return $offset;
+    }
+
+
 }
