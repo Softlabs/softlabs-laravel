@@ -60,14 +60,14 @@ class Util
     public function priority($value, $priorities=null)
     {
         if ( ! is_null($priorities) and is_array($priorities)) {
-            foreach ($priorities as $key => $value) {
+            foreach ($priorities as $key => $label) {
                 if ( ! is_int($key)) {
                     throw new \InvalidArgumentException(
                         'The priorities array must have numerical keys.'
                     );
                 }
 
-                if ( ! is_string($value)) {
+                if ( ! is_string($label)) {
                     throw new \InvalidArgumentException(
                         'The priorities array must have string values.'
                     );
@@ -75,8 +75,6 @@ class Util
             }
         }
 
-        $min = 0;
-        $max = count($priorities) - 1;
         $priorities = $priorities ?: [
             0 => 'no',
             1 => 'low',
@@ -84,7 +82,9 @@ class Util
             3 => 'high'
         ];
 
-        $index = round(self::clamp($value, $min, $max));
+        $min = 0;
+        $max = count($priorities) - 1;
+        $index = round(self::clamp((int) $value, $min, $max));
 
         return $priorities[$index] ?: 'no';
     }
