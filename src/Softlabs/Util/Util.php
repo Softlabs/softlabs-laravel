@@ -51,26 +51,32 @@ class Util
     }
 
     /**
-     * * Retrieves a priority label based on the given value.
+     * Retrieves a priority label based on the given value.
      * @param  integer  $value     The value to test
-     * @param  integer $min        The minimum priority value.
-     * @param  integer $max        The maximum priority value.
      * @param  array  $priorities An array of priorites (leave null
-     * for default: 'No', 'Low', 'Medium' and 'High')
+     * for default: 'no', 'low', 'medium' and 'high')
      * @return string priority string
      */
-    public function priority($value, $min=1, $max=3, $priorities=null)
+    public function priority($value, $priorities=null)
     {
         if ( ! is_null($priorities) and is_array($priorities)) {
             foreach ($priorities as $key => $value) {
-                if ( ! is_int($key) or ! is_int($key)) {
+                if ( ! is_int($key)) {
                     throw new \InvalidArgumentException(
-                        'The priorities array specified must have numerical keys!'
+                        'The priorities array must have numerical keys.'
+                    );
+                }
+
+                if ( ! is_string($value)) {
+                    throw new \InvalidArgumentException(
+                        'The priorities array must have string values.'
                     );
                 }
             }
         }
 
+        $min = 0;
+        $max = count($priorities) - 1;
         $priorities = $priorities ?: [
             0 => 'no',
             1 => 'low',
@@ -80,6 +86,6 @@ class Util
 
         $index = round(self::clamp($value, $min, $max));
 
-        return $priorities[$index] ?: 'No';
+        return $priorities[$index] ?: 'no';
     }
 }
