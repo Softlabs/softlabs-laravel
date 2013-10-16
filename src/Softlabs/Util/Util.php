@@ -25,6 +25,38 @@ class Util
         return "http://www.gravatar.com/avatar/$md5Email?d=mm&s=$size";
     }
 
+    /**
+     * Clamps the specified value between two values.
+     * @param  integer  $value The value to clamp.
+     * @param  integer $min   The minimum value that can be achieved.
+     * @param  integer $max   The maximum value that can be achieved.
+     * @return integer         Clamped value
+     */
+    public function clamp($value, $min=1, $max=100)
+    {
+        return $value < $min ? $min : ($value > $max ? $max : $value);
+    }
+
+    /**
+     * Fills out an array with the specified value.
+     * @param  array  $array     The array to fill out.
+     * @param  mixed  $objective The value to replicate across the array.
+     * @param  integer $times     How many times should the array be indexed.
+     * @return array             The filled-out array.
+     */
+    public function fillOutArray($array, $objective, $times=5)
+    {
+        foreach ($array as $key => $value) {
+            if (count($value) < $times) {
+                for ($i = count($value); $i < $times; $i++) {
+                    $array[$key][$i] = $objective;
+                }
+            }
+        }
+
+        return $array;
+    }
+
 	/**
 	 * Retrieves a user's gravatar page.
 	 * @param  string $email The email of the gravatar user.
@@ -37,18 +69,6 @@ class Util
         }
 
         return 'https://en.gravatar.com/site/signup';
-    }
-
-    /**
-     * Clamps the specified value between two values.
-     * @param  integer  $value The value to clamp.
-     * @param  integer $min   The minimum value that can be achieved.
-     * @param  integer $max   The maximum value that can be achieved.
-     * @return integer         Clamped value
-     */
-    public function clamp($value, $min=1, $max=100)
-    {
-        return $value < $min ? $min : ($value > $max ? $max : $value);
     }
 
     /**
