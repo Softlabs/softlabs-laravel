@@ -15,15 +15,16 @@ class Util
     		$size = 120;
     	}
 
-        $md5Email = md5(strtolower(trim($email)));
-
-        if (isset($email)) {
-            return "http://www.gravatar.com/avatar/$md5Email?s=$size";
+        // Return the default avatar if no email was provided.
+        if (is_null($email) or empty($email)) {
+            return "http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&s=$size";
         }
 
-        // Return a default gravatar image.
-        return "http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&s=$size";
+        $md5Email = md5(strtolower(trim($email)));
+
+        return "http://www.gravatar.com/avatar/$md5Email?d=mm&s=$size";
     }
+
 	/**
 	 * Retrieves a user's gravatar page.
 	 * @param  string $email The email of the gravatar user.
