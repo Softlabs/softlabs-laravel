@@ -12,6 +12,7 @@
         "php": ">=5.4.0"
     },
     "replace": {
+        "softlabs/breadcrumb": "self.version",
         "softlabs/currency": "self.version",
         "softlabs/date": "self.version",
         "softlabs/util": "self.version",
