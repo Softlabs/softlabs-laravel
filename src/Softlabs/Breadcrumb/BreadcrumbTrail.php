@@ -81,8 +81,9 @@ class BreadcrumbTrail
 	public function remove($title)
 	{
 		foreach ($this->trail as $key => $crumb) {
-			if ($crumb->title == $title)
+			if ($crumb->title == $title) {
 				unset($this->trail[$key]);
+			}
 		}
 
 		return $this;
