@@ -9,17 +9,17 @@ abstract class Logic
 	 * The repository collection used to provide data to work logic on.
 	 * @var Illuminate\Support\Collection
 	 */
-	protected $repositoryCollection;
+	protected $repositories;
 
 	/**
 	 * Called when the logical class should construct itself.
-	 * @param Illuminate\Support\Collection $repositoryCollection
+	 * @param Illuminate\Support\Collection $repositories
 	 * A collection of repositories to work logic on.
 	 * used to provide data work logic on.
 	 */
-	public function __construct(Collection $repositoryCollection)
+	public function __construct(Collection $repositories)
 	{
-		foreach ($repositoryCollection as $repository) {
+		foreach ($repositories as $repository) {
 			if ( ! ($repository instanceof Repository)) {
 				throw new InvalidArgumentException(
 					'The collection specified must contain only repositories.'
@@ -27,7 +27,7 @@ abstract class Logic
 			}
 		}
 
-		$this->repositoryCollection = $repositoryCollection;
+		$this->repositories = $repositories;
 	}
 
 	/**
@@ -38,8 +38,8 @@ abstract class Logic
 	 */
 	public function __get($key)
 	{
-		if ( isset($repositoryCollection[$key])) {
-			return $repositoryCollection[$key];
+		if ( isset($repositories[$key])) {
+			return $repositories[$key];
 		}
 	}
 }
