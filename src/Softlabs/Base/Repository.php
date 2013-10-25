@@ -1,7 +1,7 @@
 <?php namespace Softlabs\Base;
 
-use StoreInterface;
 use Softlabs\Base\Exception;
+use Softlabs\Base\StoreInterface;
 
 abstract class Repository implements StoreInterface
 {
