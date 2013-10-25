@@ -1,0 +1,25 @@
+{
+    "name": "softlabs/breadcrumb",
+    "description": "A breadcrumb library.",
+    "authors": [
+        {
+            "name": "Matthew Erskine",
+            "email": "matthew.erskine@softlabs.co.uk"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+    },
+    "autoload": {
+        "psr-0": {
+            "Softlabs\\Breadcrumb": ""
+        }
+    },
+    "target-dir": "Softlabs/Breadcrumb",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "dev"
+        }
+    },
+    "minimum-stability": "dev"
+}

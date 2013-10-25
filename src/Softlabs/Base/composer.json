@@ -1,0 +1,25 @@
+{
+    "name": "softlabs/base",
+    "description": "A collection of base classes for Softlabs projects.",
+    "authors": [
+        {
+            "name": "Matthew Erskine",
+            "email": "matthew.erskine@softlabs.co.uk"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+    },
+    "autoload": {
+        "psr-0": {
+            "Softlabs\\Base": ""
+        }
+    },
+    "target-dir": "Softlabs/Base",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "dev"
+        }
+    },
+    "minimum-stability": "dev"
+}
