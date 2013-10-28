@@ -40,7 +40,7 @@ abstract class Logic
 
 		if ( ! ($instance instanceof Repository)) {
 			throw new \InvalidArgumentException(
-				'The class name provided is not a repository.'
+				"The class [$name] is not a valid repository."
 			);
 		}
 
