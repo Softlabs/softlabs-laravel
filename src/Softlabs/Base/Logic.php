@@ -24,7 +24,7 @@ abstract class Logic
 	{
 		foreach ($repositories as $repository) {
 			if ( ! ($repository instanceof Repository)) {
-				throw new InvalidArgumentException(
+				throw new \InvalidArgumentException(
 					'The collection specified must contain only repositories.'
 				);
 			}
@@ -40,7 +40,18 @@ abstract class Logic
 	 */
 	public function addRepository($name)
 	{
+
+        $instance = $this->app->make($name);
+
 		$this->repositories[$name] = $this->app->make($name);
+
+		if ( ! ($instance instanceof Repository)) {
+			throw new \InvalidArgumentException(
+				"The class [$name] is not a valid repository."
+			);
+		}
+
+		$this->repositories[$name] = $instance;
 	}
 
 	/**
