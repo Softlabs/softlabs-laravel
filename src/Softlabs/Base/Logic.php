@@ -31,6 +31,25 @@ abstract class Logic
 	}
 
 	/**
+	 * Adds a new repository to the collection.
+	 * @param string $name The class name of the repository to create.
+	 */
+	public function addRepository($name)
+	{
+		$this->repositories[$name] = App::make($name);
+	}
+
+	/**
+	 * Retrieves a repository from the collection.
+	 * @param  string $name The class name of the repository to retrieve.
+	 * @return Repository Repository instance
+	 */
+	public function getRepository($name)
+	{
+		return $this->repositories[$name];
+	}
+
+	/**
 	 * Called when unknown properties are attempted to be accessed in the
 	 * logic class.
 	 * @param  string $key The property being attempted to index.
