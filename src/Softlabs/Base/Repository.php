@@ -84,7 +84,7 @@ abstract class Repository implements StoreInterface
 	{
 		if ( ! $allowPutNull and is_null($data)) {
 			throw new \InvalidArgumentException(
-				'A null value was attempted to be stored.'
+				'A null value cannot be stored in this repository.'
 			);
 		}
 
