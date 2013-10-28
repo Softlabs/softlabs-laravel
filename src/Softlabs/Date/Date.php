@@ -142,7 +142,8 @@ class Date
 	{
 		if (empty($date) or is_null($date) or $date == '0000-00-00 00:00:00') {
 			return $alternative;
-		} else {
+		}
+		else {
 			return self::timeAgo($date);
 		}
 	}
@@ -154,18 +155,19 @@ class Date
      * @return int       Time zone offset in seconds.
      */
     public function timezoneOffset($remote_tz, $origin_tz = null) {
-        if($origin_tz === null) {
-            if(!is_string($origin_tz = date_default_timezone_get())) {
+        if ($origin_tz === null) {
+            if( ! is_string($origin_tz = date_default_timezone_get())) {
+
                 return false;
             }
         }
+
         $origin_dtz = new \DateTimeZone($origin_tz);
         $remote_dtz = new \DateTimeZone($remote_tz);
         $origin_dt = new \DateTime("now", $origin_dtz);
         $remote_dt = new \DateTime("now", $remote_dtz);
         $offset = $origin_dtz->getOffset($origin_dt) - $remote_dtz->getOffset($remote_dt);
+
         return $offset;
     }
-
-
 }
