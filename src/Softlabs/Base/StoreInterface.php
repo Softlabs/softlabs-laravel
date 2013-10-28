@@ -20,7 +20,7 @@ interface StoreInterface
 	 * @param mixed $data The data to store.
 	 * @return mixed (eg. Success boolean)
 	 */
-	public function put($data);
+	public function put($key, $data);
 
 	/**
 	 * Called when the store should remove an item of data.

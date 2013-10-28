@@ -19,6 +19,12 @@ abstract class Repository implements StoreInterface
 	protected $allowPutNull = false;
 
 	/**
+	 * The key field used to identify data in the data store.
+	 * @var string
+	 */
+	protected $key = 'id';
+
+	/**
 	 * Called when the repository should construct itself.
 	 * @param StoreInterface $store The data store to provide for.
 	 */
@@ -80,7 +86,7 @@ abstract class Repository implements StoreInterface
 	 * @param mixed $data The data to store.
 	 * @return mixed (eg. Success boolean)
 	 */
-	public function put($data)
+	public function put($data, $key = null)
 	{
 		if ( ! $allowPutNull and is_null($data)) {
 			throw new \InvalidArgumentException(
@@ -90,7 +96,13 @@ abstract class Repository implements StoreInterface
 
 		$this->checkStoreExists();
 
-		return $this->store->put($data);
+		// We have to inform the data store which field within the data
+		// will identify that data. (Default 'id')
+		if (is_null($key)) {
+			$key = self::$key;
+		}
+
+		return $this->store->put($key, $data);
 	}
 
 	/**
