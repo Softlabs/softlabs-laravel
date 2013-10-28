@@ -31,7 +31,7 @@ abstract class Repository implements StoreInterface
 	public function __construct(StoreInterface $store)
 	{
 		if (get_class($store) === get_class(self)) {
-			throw new InvalidArgumentException(
+			throw new \InvalidArgumentException(
 				'You cannot use a repository as a repository store.'
 			);
 		}
@@ -55,7 +55,7 @@ abstract class Repository implements StoreInterface
 			}
 		}
 
-		return isset($this->store);
+		return ! empty($this->store);
 	}
 
 	/**
@@ -83,7 +83,8 @@ abstract class Repository implements StoreInterface
 
 	/**
 	 * The default repository action for storing an item of data.
-	 * @param mixed $data The data to store.
+	 * @param mixed $data The data to store (collection/array/data object etc)
+	 * @param string $key The key to identify the data being stored
 	 * @return mixed (eg. Success boolean)
 	 */
 	public function put($data, $key = null)
@@ -117,6 +118,8 @@ abstract class Repository implements StoreInterface
 				'No identifier was specified to remove data.'
 			);
 		}
+
+		$this->checkStoreExists();
 
 		return $this->store->remove($identifier);
 	}
