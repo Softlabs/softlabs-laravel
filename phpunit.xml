@@ -11,6 +11,9 @@
          syntaxCheck="false"
 >
     <testsuites>
+        <testsuite name="Base Test Suite">
+            <directory suffix=".php">./tests/base</directory>
+        </testsuite>
         <testsuite name="Breadcrumb Test Suite">
             <directory suffix=".php">./tests/breadcrumb</directory>
         </testsuite>

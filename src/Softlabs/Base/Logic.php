@@ -2,6 +2,8 @@
 
 use Repository;
 use Illuminate\Support\Collection;
+use Illuminate\Foundation\Application as App;
+use Illuminate\Support\Facades\Facade;
 
 abstract class Logic
 {
@@ -14,10 +16,11 @@ abstract class Logic
 	/**
 	 * Called when the logical class should construct itself.
 	 * @param Illuminate\Support\Collection $repositories
+     * @param Illuminate\Foundation\Application $app
 	 * A collection of repositories to work logic on.
 	 * used to provide data work logic on.
 	 */
-	public function __construct(Collection $repositories)
+	public function __construct(Collection $repositories, App $app)
 	{
 		foreach ($repositories as $repository) {
 			if ( ! ($repository instanceof Repository)) {
@@ -28,6 +31,7 @@ abstract class Logic
 		}
 
 		$this->repositories = $repositories;
+        $this->app = $app;
 	}
 
 	/**
@@ -36,7 +40,7 @@ abstract class Logic
 	 */
 	public function addRepository($name)
 	{
-		$this->repositories[$name] = App::make($name);
+		$this->repositories[$name] = $this->app->make($name);
 	}
 
 	/**
