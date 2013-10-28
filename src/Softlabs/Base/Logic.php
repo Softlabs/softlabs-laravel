@@ -38,7 +38,7 @@ abstract class Logic
 	{
 		$instance = \App::make($name);
 
-		if ($instance instanceof Repository) {
+		if ( ! ($instance instanceof Repository)) {
 			throw new \InvalidArgumentException(
 				'The class name provided is not a repository.'
 			);
