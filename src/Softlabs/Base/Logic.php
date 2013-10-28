@@ -21,7 +21,7 @@ abstract class Logic
 	{
 		foreach ($repositories as $repository) {
 			if ( ! ($repository instanceof Repository)) {
-				throw new InvalidArgumentException(
+				throw new \InvalidArgumentException(
 					'The collection specified must contain only repositories.'
 				);
 			}
@@ -36,7 +36,7 @@ abstract class Logic
 	 */
 	public function addRepository($name)
 	{
-		$this->repositories[$name] = App::make($name);
+		$this->repositories[$name] = \App::make($name);
 	}
 
 	/**
