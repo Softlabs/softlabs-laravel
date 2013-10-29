@@ -29,9 +29,9 @@ class User extends Eloquent implements StoreInterface
      * @param mixed $data The data to store.
      * @return mixed (eg. Success boolean)
      */
-    public function put($data)
+    public function put($key, $data)
     {
-        parent::put($data);
+        parent::put($key, $data);
     }
 
     /**

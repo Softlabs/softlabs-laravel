@@ -17,13 +17,6 @@ class BaseLogicTest extends Orchestra\Testbench\TestCase
 {
 
     /**
-    * Application instance.
-    *
-    * @var Illuminate\Foundation\Application
-    */
-    protected $app = null;
-
-    /**
      * Called when the dashboard test should construct itself.
      */
     public function __construct()
@@ -37,12 +30,19 @@ class BaseLogicTest extends Orchestra\Testbench\TestCase
     */
     public function setUp()
     {
-        $this->app = $this->createApplication();
+        parent::setUp();
+
+        //View Mock
+        $app = $this->createApplication();
+
+        Illuminate\Support\Facades\Facade::setFacadeApplication($app);
+
+        Illuminate\Support\Facades\App::swap($app);
 
 
         $collection = m::mock('Illuminate\Support\Collection')->makePartial();
 
-        $this->dashboard = new DashboardLogic($collection, $this->app);
+        $this->dashboard = new DashboardLogic($collection);
 
     }
 

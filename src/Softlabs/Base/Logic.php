@@ -20,7 +20,7 @@ abstract class Logic
 	 * A collection of repositories to work logic on.
 	 * used to provide data work logic on.
 	 */
-	public function __construct(Collection $repositories, App $app)
+	public function __construct(Collection $repositories)
 	{
 		foreach ($repositories as $repository) {
 			if ( ! ($repository instanceof Repository)) {
@@ -31,7 +31,6 @@ abstract class Logic
 		}
 
 		$this->repositories = $repositories;
-        $this->app = $app;
 	}
 
 	/**
@@ -41,9 +40,9 @@ abstract class Logic
 	public function addRepository($name)
 	{
 
-        $instance = $this->app->make($name);
+        $instance = App::make($name);
 
-		$this->repositories[$name] = $this->app->make($name);
+		$this->repositories[$name] = App::make($name);
 
 		if ( ! ($instance instanceof Repository)) {
 			throw new \InvalidArgumentException(
