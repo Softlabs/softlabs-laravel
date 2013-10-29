@@ -63,5 +63,6 @@ Commit messages should reflect the sub-package being updated eg.
 <ul>
 <li>Each sub-package need an informative README.md which outlines all methods in the sub-package with usage examples and clear descriptions</li>
 <li>Unit testing needs written for each package</li>
+<li><strong>Once these have been completed, the package can have its first release made.</strong></li>
 </ul>
 </blockquote>
