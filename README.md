@@ -17,8 +17,25 @@ Add `"softlabs/packages": "1.0.*"` to the `require` attribute of `composer.json`
 #### Step 2
 Add a service provider for each of the sub-packages you wish to use in the application to the `app/config/app.php` file like so: `'Softlabs\Currency\CurrencyServiceProvider'`
 
+Currently available service providers:
+
+```php
+		'Softlabs\Currency\CurrencyServiceProvider',
+		'Softlabs\Date\DateServiceProvider',
+		'Softlabs\Util\UtilServiceProvider',
+```
+
 #### Step 3
 Add an alias for each of the service providers you added in `Step 2` and prefix them with `SL` like so: `'SLCurrency' => 'Softlabs\Facades\SLCurrency'`.
+
+Currently available aliases:
+
+```php
+		'SLCurrency' => 'Softlabs\Facades\SLCurrency',
+		'SLDate' => 'Softlabs\Facades\SLDate',
+		'SLUtil' => 'Softlabs\Facades\SLUtil',
+```
+
 
 You can now use the packages!
 
