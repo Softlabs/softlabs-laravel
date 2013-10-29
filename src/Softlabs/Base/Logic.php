@@ -40,9 +40,9 @@ abstract class Logic
 	public function addRepository($name)
 	{
 
-        $instance = App::make($name);
+        $instance = \App::make($name);
 
-		$this->repositories[$name] = App::make($name);
+		$this->repositories[$name] = \App::make($name);
 
 		if ( ! ($instance instanceof Repository)) {
 			throw new \InvalidArgumentException(
