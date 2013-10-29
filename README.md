@@ -12,28 +12,36 @@ Softlabs Packages *(Implemented by [Matthew Erskine](https://github.com/matthewe
 ## Installation
 
 #### Step 1
-Add `"softlabs/packages": "1.0.*"` to the `require` attribute of `composer.json` (This will be reflected when the `composer update` command has been run).
+Add the following to the attribute to the `composer.json` file. This will allow the package to be discovered (as it is private)
+```json
+"repositories": [
+	{ "type": "vcs", "url": "http://github.com/softlabs/softlabs-laravel" }
+],
+```
 
 #### Step 2
+Add `"softlabs/packages": "1.0.*"` to the `require` attribute of `composer.json` (This will be reflected when the `composer update` command has been run).
+
+#### Step 3
 Add a service provider for each of the sub-packages you wish to use in the application to the `app/config/app.php` file like so: `'Softlabs\Currency\CurrencyServiceProvider'`
 
 Currently available service providers:
 
 ```php
-		'Softlabs\Currency\CurrencyServiceProvider',
-		'Softlabs\Date\DateServiceProvider',
-		'Softlabs\Util\UtilServiceProvider',
+'Softlabs\Currency\CurrencyServiceProvider',
+'Softlabs\Date\DateServiceProvider',
+'Softlabs\Util\UtilServiceProvider',
 ```
 
-#### Step 3
+#### Step 4
 Add an alias for each of the service providers you added in `Step 2` and prefix them with `SL` like so: `'SLCurrency' => 'Softlabs\Facades\SLCurrency'`.
 
 Currently available aliases:
 
 ```php
-		'SLCurrency' => 'Softlabs\Facades\SLCurrency',
-		'SLDate' => 'Softlabs\Facades\SLDate',
-		'SLUtil' => 'Softlabs\Facades\SLUtil',
+'SLCurrency' => 'Softlabs\Facades\SLCurrency',
+'SLDate' => 'Softlabs\Facades\SLDate',
+'SLUtil' => 'Softlabs\Facades\SLUtil',
 ```
 
 
