@@ -24,6 +24,14 @@ You can now use the packages!
 
 ------
 
+## Updating Packages
+
+If you are updating the package - be it refactoring, fixing bugs or implementing new features, make sure you follow the [Softlabs Coding Standards](https://github.com/Softlabs/Softlabs/blob/master/Coding_Standards/Softlabs%20Coding%20Standards.md).
+Commit messages should reflect the sub-package being updated eg.
+
+```
+  Updated 'Logic' class on `Base` package
+```
 
 <blockquote>
 <h3>TODO</h3>
