@@ -20,7 +20,7 @@ Add the following to the attribute to the `composer.json` file. This will allow 
 ```
 
 #### Step 2
-Add `"softlabs/packages": "1.0.*"` to the `require` attribute of `composer.json` (This will be reflected when the `composer update` command has been run).
+Add `"softlabs/packages": "*"` to the `require` attribute of `composer.json` (This will be reflected when the `composer update` command has been run).
 
 #### Step 3
 Add a service provider for each of the sub-packages you wish to use in the application to the `app/config/app.php` file like so: `'Softlabs\Currency\CurrencyServiceProvider'`
