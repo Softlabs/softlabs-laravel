@@ -12,14 +12,4 @@ abstract class Logic
 	 * @var Softlabs\Base\Repository
 	 */
 	protected $repository;
-
-	/**
-	 * Called when the logical class should construct itself.
-	 * @param Softlabs\Base\Repository $repository
-	 * The repository used to provide data to work logic on.
-	 */
-	public function __construct(Repository $repository)
-	{
-		$this->repository = $repository;
-	}
 }
