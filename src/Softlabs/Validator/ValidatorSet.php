@@ -71,7 +71,7 @@ class ValidatorSet
                 return $callback($this->messages);
             }
 
-            return \Response::json([$messages]);
+            return \Response::json([$this->messages]);
         }
 
         // Return false if there were no failures.
