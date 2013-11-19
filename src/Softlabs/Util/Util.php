@@ -9,7 +9,7 @@ class Util
 	 * @param  integer $size  The size of the image to display.
 	 * @return string        URL to the user's gravatar image.
 	 */
-    public function avatar($email=null, $size=null)
+    public function avatar($email = null, $size = null)
     {
     	// Set a default size if none or an invalid was provided.
     	if ( ! isset($size) or ! is_numeric($size)) {
@@ -34,7 +34,7 @@ class Util
      * @param  integer $max   The maximum value that can be achieved.
      * @return integer         Clamped value
      */
-    public function clamp($value, $min=1, $max=100)
+    public function clamp($value, $min = 1, $max = 100)
     {
         return $value < $min ? $min : ($value > $max ? $max : $value);
     }
@@ -47,7 +47,7 @@ class Util
      * @param  integer $times     How many times should the array be indexed.
      * @return array             The filled-out array.
      */
-    public function fillOutArray($array, $objective, $times=5)
+    public function fillOutArray($array, $objective, $times = 5)
     {
         foreach ($array as $key => $value) {
             if (count($value) < $times) {
@@ -83,8 +83,10 @@ class Util
      * for default: 'no', 'low', 'medium' and 'high')
      * @return string priority string
      */
-    public function priority($value, $priorities=null)
+    public function priority($value, $priorities = null)
     {
+        // The priorities are tested to ensure that each index
+        // contains a numerical key and a string value.
         if ( ! is_null($priorities) and is_array($priorities)) {
             foreach ($priorities as $key => $label) {
                 if ( ! is_int($key)) {
@@ -101,12 +103,7 @@ class Util
             }
         }
 
-        $priorities = $priorities ?: [
-            0 => 'no',
-            1 => 'low',
-            2 => 'medium',
-            3 => 'high'
-        ];
+        $priorities = $priorities ?: array('no', 'low', 'medium', 'high');
 
         $min = 0;
         $max = count($priorities) - 1;

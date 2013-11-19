@@ -52,11 +52,11 @@ abstract class Repository implements StoreInterface
 	 */
 	private function checkStoreExists($throwException = true)
 	{
-		if ($throwException) {
-			if ( ! isset($this->store)) {
+		// An exception will be raised if the store is
+		// unavailable, and $throwException is true.
+		if ($throwException and ! isset($this->store)) {
 
-				throw new NoStoreSetException;
-			}
+			throw new NoStoreSetException;
 		}
 
 		return ! empty($this->store);
