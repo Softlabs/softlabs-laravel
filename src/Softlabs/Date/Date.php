@@ -4,6 +4,7 @@ class Date
 {
 	/**
 	 * Retrieves a date in D/M/Y format.
+	 *
 	 * @param  string $date The date string to format.
 	 * @return string       The formatted date string.
 	 */
@@ -16,6 +17,7 @@ class Date
 
 	/**
 	 * Retrieves a date in D/M/Y H:i format.
+	 *
 	 * @param  string $date The date string to format.
 	 * @return string       The formatted date string.
 	 */
@@ -29,6 +31,7 @@ class Date
 
 	/**
 	 * Retrieves a date in M d format.
+	 *
 	 * @param  string $date The date string to format.
 	 * @return string       The formatted date string.
 	 */
@@ -41,6 +44,7 @@ class Date
 
 	/**
 	 * Retrieves a date in Y format.
+	 *
 	 * @param  string $date The date string to format.
 	 * @return string       The formatted date string.
 	 */
@@ -53,6 +57,7 @@ class Date
 
 	/**
 	 * Retrieves a date in h:i A format.
+	 *
 	 * @param  string $date The date string to format.
 	 * @return string       The formatted date string.
 	 */
@@ -65,6 +70,7 @@ class Date
 
 	/**
 	 * Retrieves a date in H:i format.
+	 *
 	 * @param  string $date The date string to format.
 	 * @return string       The formatted date string.
 	 */
@@ -78,6 +84,7 @@ class Date
 	/**
 	 * Converts a date into a format which can be used as
 	 * a MySQL entry.
+	 *
 	 * @param  string $date The date string to format.
 	 * @return string       The formatted date string.
 	 */
@@ -90,6 +97,7 @@ class Date
 
 	/**
 	 * Retrieves a date and time.
+	 *
 	 * @param  string $date The date string to format.
 	 * @param  string $time The time string to format.
 	 * @return string       The formatted date/time string.
@@ -103,6 +111,7 @@ class Date
 
 	/**
 	 * Retrieves how long ago a specific time was from now.
+	 *
 	 * @param  string $date The date to test.
 	 * @return string       The formatted date string.
 	 */
@@ -133,6 +142,7 @@ class Date
 
 	/**
 	 * Displays how long ago a time was or an alternative string.
+	 *
 	 * @param  string $date The date string to test.
 	 * @param  string $alternative The string to display if the time
 	 * ago was never.
@@ -150,6 +160,7 @@ class Date
 
     /**
      * Calculates the time zone offset between time zones.
+     *
      * @param  string $remote_tz The remote time zone.
      * @param  string $origin_tz Origin time zone.
      * @return int       Time zone offset in seconds.

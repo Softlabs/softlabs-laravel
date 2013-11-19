@@ -4,6 +4,7 @@ class Util
 {
 	/**
 	 * Retrieves an avatar image for the specified email. (Gravatar)
+     *
 	 * @param  string $email The email of the gravatar user.
 	 * @param  integer $size  The size of the image to display.
 	 * @return string        URL to the user's gravatar image.
@@ -27,6 +28,7 @@ class Util
 
     /**
      * Clamps the specified value between two values.
+     *
      * @param  integer  $value The value to clamp.
      * @param  integer $min   The minimum value that can be achieved.
      * @param  integer $max   The maximum value that can be achieved.
@@ -39,6 +41,7 @@ class Util
 
     /**
      * Fills out an array with the specified value.
+     *
      * @param  array  $array     The array to fill out.
      * @param  mixed  $objective The value to replicate across the array.
      * @param  integer $times     How many times should the array be indexed.
@@ -59,6 +62,7 @@ class Util
 
 	/**
 	 * Retrieves a user's gravatar page.
+     *
 	 * @param  string $email The email of the gravatar user.
 	 * @return string        URL to the user's gravatar page.
 	 */
@@ -73,6 +77,7 @@ class Util
 
     /**
      * Retrieves a priority label based on the given value.
+     *
      * @param  integer  $value     The value to test
      * @param  array  $priorities An array of priorites (leave null
      * for default: 'no', 'low', 'medium' and 'high')

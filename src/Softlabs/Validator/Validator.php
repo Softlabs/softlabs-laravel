@@ -7,6 +7,7 @@ abstract class Validator
 {
     /**
      * An array containing all of the rules associated to this validator.
+     *
      * @var array
      */
     protected $rules;
@@ -14,12 +15,14 @@ abstract class Validator
     /**
      * An array containing all of the messages to display for each broken
      * rule in the validator.
+     *
      * @var array
      */
     protected $messages;
 
     /**
      * Called when the validator should construct itself.
+     *
      * @param array $rules An set of rules for the validator to use.
      * @param array $messages An set of messages for the validator to use.
      * @param  boolean $merge Merges specified rules and messages with
@@ -50,6 +53,7 @@ abstract class Validator
 
     /**
      * Replaces the current rules holded by the validator.
+     *
      * @return array An array of validation rules.
      */
     public function replaceRules($rules)
@@ -67,6 +71,7 @@ abstract class Validator
 
     /**
      * Replaces the current messages holded by the validator.
+     *
      * @return array An array of validation messages.
      */
     public function replaceMessages($messages)
@@ -84,6 +89,7 @@ abstract class Validator
 
     /**
      * Called when the validator should execute.
+     *
      * @param  array $input Any input data to be validated by this
      * validator.
      * @return array        The results of the validation process.

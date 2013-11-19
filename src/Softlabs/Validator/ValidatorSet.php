@@ -6,18 +6,21 @@ class ValidatorSet
 {
     /**
      * An array for storing messages from validator execution.
-     * @var Array
+     *
+     * @var array
      */
     private $messages;
 
     /**
      * An array for storing the validators used by this set.
-     * @var Array
+     *
+     * @var array
      */
     private $validators;
 
     /**
      * Called when the validator set should construct itself.
+     *
      * @param array  $data       Data to be validated.
      * @param array  $validators A collection of validators to execute on the
      * data.
@@ -30,6 +33,7 @@ class ValidatorSet
 
     /**
      * Sets the validators for this set.
+     *
      * @param array $validators An array of validators to be used.
      */
     public function add(array $validators)
@@ -39,6 +43,7 @@ class ValidatorSet
 
     /**
      * Retrieves the validators in this set.
+     *
      * @return array An array of validators used by the set.
      */
     public function get()
@@ -48,16 +53,18 @@ class ValidatorSet
 
     /**
      * Called when the validator set should execute each of the validators.
+     *
      * @param  Closure $callback [Optional] Callback for producing a response.
      * @return boolean/response  Callback or JSON Response or True if there
      * were no validation messages.
      */
     public function execute($data, $callback=null)
     {
-        if (is_null($data))
+        if (is_null($data)) {
             throw new \InvalidArgumentException(
                 'The data to execute on this validator set is invalid.'
             );
+        }
 
         foreach ($this->validators as $validator) {
             $this->messages = array_merge(

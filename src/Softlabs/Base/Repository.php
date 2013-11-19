@@ -7,6 +7,7 @@ abstract class Repository implements StoreInterface
 {
 	/**
 	 * The data store to provide data for.
+	 *
 	 * @var StoreInterface
 	 */
 	protected $store;
@@ -14,18 +15,21 @@ abstract class Repository implements StoreInterface
 	/**
 	 * Specify whether null is allowed to be stored with this
 	 * repository.
+	 *
 	 * @var boolean
 	 */
 	protected $allowPutNull = false;
 
 	/**
 	 * The key field used to identify data in the data store.
+	 *
 	 * @var string
 	 */
 	protected $key = 'id';
 
 	/**
 	 * Called when the repository should construct itself.
+	 *
 	 * @param StoreInterface $store The data store to provide for.
 	 */
 	public function __construct(StoreInterface $store)
@@ -41,6 +45,7 @@ abstract class Repository implements StoreInterface
 
 	/**
 	 * Checks if a data store has been set for this repository.
+	 *
 	 * @param  boolean $throwException Specifies whether an exception
 	 * should be thrown if the store is non-existent.
 	 * @return boolean If the store exists or not
@@ -49,9 +54,8 @@ abstract class Repository implements StoreInterface
 	{
 		if ($throwException) {
 			if ( ! isset($this->store)) {
-				throw new NoStoreSetException(
-					'A data store has not been set for this repository.'
-				);
+
+				throw new NoStoreSetException;
 			}
 		}
 
@@ -60,6 +64,7 @@ abstract class Repository implements StoreInterface
 
 	/**
 	 * The default repository action for retrieving an item of data.
+	 *
 	 * @param integer $identifier The identifier of the data.
 	 * @return mixed Data
 	 */
@@ -108,6 +113,7 @@ abstract class Repository implements StoreInterface
 
 	/**
 	 * The default repository action for removing an item of data.
+	 *
 	 * @param integer $identifier The identifier of the data.
 	 * @return mixed (eg. Success boolean)
 	 */
@@ -126,6 +132,7 @@ abstract class Repository implements StoreInterface
 
 	/**
 	 * Called when any unknown method calls are made to the repository.
+	 *
 	 * @return mixed Attempt the method call on the data store.
 	 */
 	public function __call($method, $parameters)
