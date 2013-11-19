@@ -8,7 +8,7 @@ abstract class Repository implements StoreInterface
 	/**
 	 * The data store to provide data for.
 	 *
-	 * @var StoreInterface
+	 * @var Softlabs\Base\StoreInterface
 	 */
 	protected $store;
 
@@ -30,7 +30,7 @@ abstract class Repository implements StoreInterface
 	/**
 	 * Called when the repository should construct itself.
 	 *
-	 * @param StoreInterface $store The data store to provide for.
+	 * @param Softlabs\Base\StoreInterface $store The data store to provide for.
 	 */
 	public function __construct(StoreInterface $store)
 	{
