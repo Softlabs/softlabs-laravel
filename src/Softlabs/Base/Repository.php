@@ -1,41 +1,44 @@
 <?php namespace Softlabs\Base;
 
-use Softlabs\Base\StoreInterface;
-
-abstract class Repository
+interface Repository
 {
 	/**
 	 * The default repository action for retrieving an item of data.
 	 *
-	 * @return mixed Data
+	 * @param  integer $identifier  The identifier of the data.
+	 * @return mixed   Data
 	 */
-	abstract public function get();
+	public function get($identifier);
 
 	/**
 	 * The default repository action for retrieving all data.
 	 *
 	 * @return mixed Data collection
 	 */
-	abstract public function getAll();
+	public function getAll();
 
 	/**
 	 * The default repository action for storing a new item of data.
 	 *
+	 * @param  mixed  $data  The data to store.
 	 * @return mixed
 	 */
-	abstract public function create();
+	public function create($data);
 
 	/**
 	 * The default repository action for updating an item of data.
 	 *
+	 * @param  integer $identifier  The identifier of the data.
+	 * @param  mixed   $data        The data to update with.
 	 * @return mixed
 	 */
-	abstract public function update();
+	public function update($identifier, $data);
 
 	/**
 	 * The default repository action for removing an item of data.
 	 *
+	 * @param  integer $identifier  The identifier of the data.
 	 * @return mixed
 	 */
-	abstract public function destroy();
+	public function destroy($identifier);
 }
