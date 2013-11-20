@@ -1,10 +1,5 @@
 <?php namespace Softlabs\Base;
 
-use Softlabs\Base\Repository;
-use Illuminate\Support\Collection;
-use Illuminate\Foundation\Application as App;
-use Illuminate\Support\Facades\Facade;
-
 abstract class Logic
 {
 	/**
