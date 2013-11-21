@@ -1,4 +1,4 @@
-<?php
+<?php namespace Softlabs\Base;
 
 interface FrameComposerInterface
 {
