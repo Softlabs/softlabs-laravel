@@ -1,6 +1,6 @@
 <?php namespace Softlabs\Base;
 
-interface Repository
+interface RepositoryInterface
 {
 	/**
 	 * The default repository action for retrieving an item of data.
