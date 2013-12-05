@@ -98,7 +98,7 @@ class Paginator
 		}
 
 		// < TODO > //
-		if (count(explode('.', $this->sortColumn)) > 1) {
+		if ((count(explode('.', $this->sortColumn)) > 1) or ! isset($this->sortColumn))  {
 			return $model;
 		}
 
