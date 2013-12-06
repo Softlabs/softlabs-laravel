@@ -9,6 +9,6 @@ class SLDate extends Facade {
 	 *
 	 * @return string
 	 */
-	protected static function getFacadeAccessor() { return 'date'; }
+	protected static function getFacadeAccessor() { return 'sldate'; }
 
 }
