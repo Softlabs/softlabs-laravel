@@ -28,8 +28,8 @@ class CurrencyServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['currency'] = $this->app->share(function($app) {
-			return new Currency();
+		$this->app['slcurrency'] = $this->app->share(function($app) {
+			return new Currency;
 		});
 	}
 
