@@ -9,6 +9,6 @@ class SLCurrency extends Facade {
 	 *
 	 * @return string
 	 */
-	protected static function getFacadeAccessor() { return 'slcurrency'; }
+	protected static function getFacadeAccessor() { return 'softlabs.currency'; }
 
 }

@@ -29,7 +29,7 @@ class PaginationServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['slpaginator'] = $this->app->share(function($app) {
+		$this->app['softlabs.paginator'] = $this->app->share(function($app) {
 			return new Factory;
 		});
 	}

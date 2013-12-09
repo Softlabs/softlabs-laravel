@@ -28,7 +28,7 @@ class UtilServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['util'] = $this->app->share(function($app) {
+		$this->app['softlabs.util'] = $this->app->share(function($app) {
 			return new Util();
 		});
 	}

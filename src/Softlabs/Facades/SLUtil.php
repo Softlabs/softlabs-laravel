@@ -9,6 +9,6 @@ class SLUtil extends Facade {
 	 *
 	 * @return string
 	 */
-	protected static function getFacadeAccessor() { return 'slutil'; }
+	protected static function getFacadeAccessor() { return 'softlabs.util'; }
 
 }

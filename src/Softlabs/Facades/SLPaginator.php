@@ -9,6 +9,6 @@ class SLPaginator extends Facade {
 	 *
 	 * @return string
 	 */
-	protected static function getFacadeAccessor() { return 'slpaginator'; }
+	protected static function getFacadeAccessor() { return 'softlabs.paginator'; }
 
 }

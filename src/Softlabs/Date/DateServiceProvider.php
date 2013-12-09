@@ -28,7 +28,7 @@ class DateServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['sldate'] = $this->app->share(function($app) {
+		$this->app['softlabs.date'] = $this->app->share(function($app) {
 			return new Date;
 		});
 	}

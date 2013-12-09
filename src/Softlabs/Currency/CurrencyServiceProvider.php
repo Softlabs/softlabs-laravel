@@ -28,7 +28,7 @@ class CurrencyServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['slcurrency'] = $this->app->share(function($app) {
+		$this->app['softlabs.currency'] = $this->app->share(function($app) {
 			return new Currency;
 		});
 	}
