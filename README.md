@@ -8,6 +8,7 @@ Softlabs Packages
 - [Date](https://github.com/Softlabs/softlabs-laravel/tree/master/src/Softlabs/Date)
 - [Util](https://github.com/Softlabs/softlabs-laravel/tree/master/src/Softlabs/Util)
 - [Validator](https://github.com/Softlabs/softlabs-laravel/tree/master/src/Softlabs/Validator)
+- [Pagination](https://github.com/Softlabs/softlabs-laravel/tree/master/src/Softlabs/Pagination)
 
 ## Installation
 
