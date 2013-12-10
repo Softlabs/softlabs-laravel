@@ -24,6 +24,27 @@ class Paginator
 	protected $sortOrder;
 
 	/**
+	 * How many items to display per paginated page.
+	 *
+	 * @var integer
+	 */
+	protected $itemsPerPage;
+
+	/**
+	 * The name of the view to display paginated data on.
+	 *
+	 * @var string
+	 */
+	protected $viewName;
+
+	/**
+	 * The name of the variable containing data to display in a paginated view.
+	 *
+	 * @var string
+	 */
+	protected $viewVariableName;
+
+	/**
 	 * Called when the paginator should construct itself.
 	 *
 	 * @param \Illuminate\Database\Eloquent\Builder  $model
@@ -34,23 +55,39 @@ class Paginator
 	}
 
 	/**
+	 * Called when the initial pagination should be carried out.
+	 * (eg When the table first loads/index view)
+	 *
+	 * @return \Illuminate\Pagination\Paginator
+	 */
+	public function initialPaginate()
+	{
+		return $this->getModel()->paginate(self::getItemsPerPage());
+	}
+
+	/**
 	 * Called when ajax pagination should be carried out.
 	 *
 	 * @param  integer  $amount
 	 * @param  integer  $page
 	 * @return array
 	 */
-	public function ajaxPaginate($amount, $page = 1)
+	public function ajaxPaginate($page = 1)
 	{
+		// Retrieve the request input variables and stores them.
 		self::retrieveInput();
+
+		$viewName = self::getViewName();
+		$itemsPerPage = self::getItemsPerPage();
+		$viewVariableName = self::getViewVariableName();
 
 		// Start by setting Laravel's paginator environment
 		// to the specified page.
 		\Paginator::setCurrentPage($page);
 
-		$users = self::applyFilters()->paginate($amount);
+		$model = self::applyFilters()->paginate($itemsPerPage);
 
-		$view = \View::make('users', compact('users'))->render();
+		$view = \View::make($viewName, [$viewVariableName => $model])->render();
 
 		return [
 			'status' => 'ok',
@@ -83,72 +120,84 @@ class Paginator
 	 */
 	protected function applyFilters()
 	{
-		$relationships = self::findRelationships($this->sortColumn);
-
-		// If relationships were found on this model, we
-		// will create a related model before we begin
-		// applying filters.
-		if ( ! empty($relationships)) {
-			$model = self::makeRelatedModel($relationships);
-		}
-
-		// Otherwise we can directly use the model instance.
-		else {
-			$model = $this->model;
-		}
-
-		// < TODO > //
-		if ((count(explode('.', $this->sortColumn)) > 1) or ! isset($this->sortColumn))  {
-			return $model;
-		}
-
-		$model = $model->orderBy($this->sortColumn, $this->sortOrder);
+		$model = self::getModel();
 
 		// // The sort column and sort order is used to interact
 		// // with the 'orderBy' sorting of the data.
-		// if (isset($this->sortColumn) and isset($this->sortOrder)) {
-		// 	$model = $model->orderBy($this->sortColumn, $this->sortOrder);
-		// }
+		if (isset($this->sortColumn) and isset($this->sortOrder)) {
+			$model = $model->orderBy($this->sortColumn, $this->sortOrder);
+		}
 
 		return $model;
 	}
 
-	protected function findRelationships($content)
+	/**
+	 * Retrieves the model.
+	 *
+	 * @return \Illuminate\Database\Query\Builder
+	 */
+	public function getModel()
 	{
-		$relationships = explode('.', $content);
-
-		// If there are no relationships required to sort
-		// this column, we can stop here.
-		if (count($relationships) <= 1) {
-
-			return;
-		}
-
-		// The first item determines the base model to find
-		// relationships in, and the final item determines
-		// the field to sort by.
-		$base = head($relationships);
-		$field = last($relationships);
-
-		unset($relationships[0]);
-		unset($relationships[count($relationships)]);
-
-		return $relationships;
+		return $this->model;
 	}
 
-	protected function makeRelatedModel($relationships)
+	/**
+	 * Retrieves the items per page.
+	 *
+	 * @return integer
+	 */
+	public function getItemsPerPage()
 	{
-		$chain = $this->model;
+		return $this->itemsPerPage;
+	}
 
-		// Iterate each relationship detected so that
-		// we can chain on/include the appropriate
-		// fields.
-		foreach ($relationships as $relationship) {
-			$name = \Str::title($relationship);
+	/**
+	 * Sets the items per page.
+	 *
+	 * @param  integer  $itemsPerPage
+	 */
+	public function setItemsPerPage($itemsPerPage)
+	{
+		$this->itemsPerPage = $itemsPerPage;
+	}
 
-			$models[] = $chain->with($name);
-		}
+	/**
+	 * Retrieves the view name.
+	 *
+	 * @return string
+	 */
+	public function getViewName()
+	{
+		return $this->viewName;
+	}
 
-		return $chain;
+	/**
+	 * Sets the view name.
+	 *
+	 * @param  string  $viewName
+	 */
+	public function setViewName($viewName)
+	{
+		$this->viewName = $viewName;
+	}
+
+	/**
+	 * Retrieves the view variable name.
+	 *
+	 * @return string
+	 */
+	public function getViewVariableName()
+	{
+		return $this->viewVariableName;
+	}
+
+	/**
+	 * Sets the view variable name.
+	 *
+	 * @param  string  $viewVariableName
+	 */
+	public function setViewVariableName($viewVariableName)
+	{
+		$this->viewVariableName = $viewVariableName;
 	}
 }

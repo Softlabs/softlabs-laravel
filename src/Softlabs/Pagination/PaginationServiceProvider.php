@@ -30,7 +30,7 @@ class PaginationServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app['softlabs.paginator'] = $this->app->share(function($app) {
-			return new Factory;
+			return new Factory($app['view']);
 		});
 	}
 
@@ -41,7 +41,7 @@ class PaginationServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array();
+		return array('softlabs.paginator');
 	}
 
 }
