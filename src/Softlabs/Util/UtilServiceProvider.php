@@ -40,7 +40,7 @@ class UtilServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array();
+		return array('softlabs.util');
 	}
 
 }

@@ -40,7 +40,7 @@ class DateServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array();
+		return array('softlabs.date');
 	}
 
 }

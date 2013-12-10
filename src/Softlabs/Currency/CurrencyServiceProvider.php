@@ -40,7 +40,7 @@ class CurrencyServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array();
+		return array('softlabs.currency');
 	}
 
 }
