@@ -1,7 +1,7 @@
 Softlabs Packages
 ================
 
-Softlabs Packages *(Implemented by [Matthew Erskine](https://github.com/matthewerskine))*
+Softlabs Packages
 
 - [Base](https://github.com/Softlabs/softlabs-laravel/tree/master/src/Softlabs/Base)
 - [Cur](https://github.com/Softlabs/softlabs-laravel/tree/master/src/Softlabs/Cur)
