@@ -32,6 +32,7 @@ Currently available service providers:
 'Softlabs\Currency\CurrencyServiceProvider',
 'Softlabs\Date\DateServiceProvider',
 'Softlabs\Util\UtilServiceProvider',
+'Softlabs\Pagination\PaginationServiceProvider',
 ```
 
 #### Step 4
@@ -43,6 +44,7 @@ Currently available aliases:
 'SLCurrency' => 'Softlabs\Facades\SLCurrency',
 'SLDate' => 'Softlabs\Facades\SLDate',
 'SLUtil' => 'Softlabs\Facades\SLUtil',
+'SLPaginator' => 'Softlabs\Facades\SLPaginator',
 ```
 
 
