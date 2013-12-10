@@ -1,8 +1,9 @@
-<?php namespace Softlabs\Currency;
+<?php namespace Softlabs\Pagination;
 
+use Softlabs\Pagination\Factory;
 use Illuminate\Support\ServiceProvider;
 
-class CurrencyServiceProvider extends ServiceProvider {
+class PaginationServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -18,7 +19,7 @@ class CurrencyServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('softlabs/currency');
+		$this->package('softlabs/pagination');
 	}
 
 	/**
@@ -28,8 +29,8 @@ class CurrencyServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['softlabs.currency'] = $this->app->share(function($app) {
-			return new Currency;
+		$this->app['softlabs.paginator'] = $this->app->share(function($app) {
+			return new Factory($app['view']);
 		});
 	}
 
@@ -40,7 +41,7 @@ class CurrencyServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array();
+		return array('softlabs.paginator');
 	}
 
 }

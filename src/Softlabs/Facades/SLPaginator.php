@@ -2,13 +2,13 @@
 
 use Illuminate\Support\Facades\Facade;
 
-class SLCurrency extends Facade {
+class SLPaginator extends Facade {
 
 	/**
 	 * Get the registered name of the component.
 	 *
 	 * @return string
 	 */
-	protected static function getFacadeAccessor() { return 'softlabs.currency'; }
+	protected static function getFacadeAccessor() { return 'softlabs.paginator'; }
 
 }
