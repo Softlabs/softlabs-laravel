@@ -1,6 +1,8 @@
 <?php namespace Softlabs\Pagination;
 
-class AjaxPresenter extends Illuminate\Pagination\BootstrapPresenter
+use Illuminate\Pagination\BootstrapPresenter;
+
+class AjaxPresenter extends BootstrapPresenter
 {
 	/**
 	 * Render the Bootstrap pagination contents.

@@ -1,5 +1,6 @@
 <?php namespace Softlabs\Pagination;
 
+use Illuminate\View\Environment;
 use Softlabs\Pagination\Paginator;
 
 class Factory
@@ -7,7 +8,7 @@ class Factory
 	/**
 	 * Called when the factory should construct itself.
 	 */
-	public function __construct(ViewEnvironment $viewEnvironment)
+	public function __construct(Environment $viewEnvironment)
 	{
 		// Register the view namespace
 		$viewEnvironment->addNamespace('softlabs.pagination', __DIR__.'/views');

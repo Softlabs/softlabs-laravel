@@ -1,5 +1,5 @@
 <?php
-	$presenter = new AjaxPresenter($paginator);
+	$presenter = new Softlabs\Pagination\AjaxPresenter($paginator);
 ?>
 
 <?php if ($paginator->getLastPage() > 1): ?>
