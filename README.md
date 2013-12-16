@@ -6,6 +6,7 @@ Softlabs Packages
 - [Base](https://github.com/Softlabs/softlabs-laravel/tree/master/src/Softlabs/Base)
 - [Cur](https://github.com/Softlabs/softlabs-laravel/tree/master/src/Softlabs/Cur)
 - [Date](https://github.com/Softlabs/softlabs-laravel/tree/master/src/Softlabs/Date)
+- [Facades](https://github.com/Softlabs/softlabs-laravel/tree/master/src/Softlabs/Facades)
 - [Util](https://github.com/Softlabs/softlabs-laravel/tree/master/src/Softlabs/Util)
 - [Validator](https://github.com/Softlabs/softlabs-laravel/tree/master/src/Softlabs/Validator)
 - [Pagination](https://github.com/Softlabs/softlabs-laravel/tree/master/src/Softlabs/Pagination)
