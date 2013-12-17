@@ -12,4 +12,4 @@ To start using this custom response facade, you must replace the facade alias fo
 'Response' => 'Softlabs\Facades\Response',
 ```
 
-Finally, any JQuery code you have written which uses the `$.ajax` method must have `datatype: 'json'` specified to ensure the returning data is parsed as JSON (as the response is now 'text/html' it may not be recognised as JSON by JQuery and cause unusual errors).
+Finally, any JQuery code you have written which uses the `$.ajax` method must have `dataType: 'json'` specified to ensure the returning data is parsed as JSON (as the response is now 'text/html' it may not be recognised as JSON by JQuery and cause unusual errors).
