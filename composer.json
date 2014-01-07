@@ -16,7 +16,8 @@
         "softlabs/currency": "self.version",
         "softlabs/date": "self.version",
         "softlabs/util": "self.version",
-        "softlabs/validator": "self.version"
+        "softlabs/validator": "self.version",
+        "softlabs/support": "self.version"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*",
