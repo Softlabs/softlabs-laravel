@@ -3,41 +3,41 @@
 interface RepositoryInterface
 {
 	/**
-	 * The default repository action for retrieving an item of data.
+	 * Called when the repository should retrieve an item of data.
 	 *
-	 * @param  integer $identifier  The identifier of the data.
-	 * @return mixed   Data
+	 * @param  integer  $identifier
+	 * @return mixed
 	 */
 	public function get($identifier);
 
 	/**
-	 * The default repository action for retrieving all data.
+	 * Called when the repository should retrieve all data.
 	 *
-	 * @return mixed Data collection
+	 * @return mixed
 	 */
 	public function getAll();
 
 	/**
-	 * The default repository action for storing a new item of data.
+	 * Called when the repository should store a new item of data.
 	 *
-	 * @param  mixed  $data  The data to store.
+	 * @param  mixed  $data
 	 * @return mixed
 	 */
 	public function create($data);
 
 	/**
-	 * The default repository action for updating an item of data.
+	 * Called when the repository should update an item of data.
 	 *
-	 * @param  integer $identifier  The identifier of the data.
-	 * @param  mixed   $data        The data to update with.
+	 * @param  integer  $identifier
+	 * @param  mixed  $data
 	 * @return mixed
 	 */
 	public function update($identifier, $data);
 
 	/**
-	 * The default repository action for removing an item of data.
+	 * Called when the repository should remove an item of data.
 	 *
-	 * @param  integer $identifier  The identifier of the data.
+	 * @param  integer  $identifier
 	 * @return mixed
 	 */
 	public function destroy($identifier);
