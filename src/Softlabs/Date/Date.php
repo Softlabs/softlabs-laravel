@@ -141,6 +141,34 @@ class Date
 	}
 
 	/**
+	 * Retrieves how far ahead a specific time is from now
+	 *
+	 * @param  string  $date
+	 * @return string
+	 */
+	public function timeAhead($date)
+	{
+		$date = strtotime($date);
+
+	    if ($date >= strtotime('today 00:00') and $date <= strtotime('tomorrow 00:00'))
+	    {
+	        return 'Today at ' . date('g:ia', $date);
+	    }
+	    elseif ($date >= strtotime('tomorrow 00:00') and $date <= strtotime('+2 day 00:00'))
+	    {
+	        return 'Tomorrow at ' . date('g:ia', $date);
+	    }
+	    elseif ($date >= strtotime('+2 day 00:00') and $date <= strtotime('+6 day 00:00'))
+	    {
+	    	return date('l \\a\\t g:ia', $date);
+	    }
+	    else
+	    {
+	    	return date('M j, Y g:ia', $date);
+	    }
+	}
+
+	/**
 	 * Displays how long ago a time was or an alternative string.
 	 *
 	 * @param  string $date The date string to test.
