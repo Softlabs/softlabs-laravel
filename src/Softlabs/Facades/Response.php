@@ -13,7 +13,7 @@ class Response extends ResponseFacade
 	 * @param  array  $headers
 	 * @return \Illuminate\Http\JsonResponse
 	 */
-	public static function json($data = array(), $status = 200, array $headers = array())
+	public static function json($data = array(), $status = 200, array $headers = array(), $options = 0)
 	{
 		if ($data instanceof ArrayableInterface)
 		{
