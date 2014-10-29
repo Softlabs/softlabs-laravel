@@ -14,7 +14,7 @@ Softlabs Packages
 ## Installation
 
 #### Step 1
-Add the following to the attribute to the `composer.json` file. This will allow the package to be discovered (as it is private)
+Add the following attribute to the `composer.json` file. This will allow the package to be discovered (as it is private)
 ```json
 "repositories": [
 	{ "type": "vcs", "url": "http://github.com/softlabs/softlabs-laravel" }
