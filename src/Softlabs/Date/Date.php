@@ -30,6 +30,34 @@ class Date
 	}
 
 	/**
+	 * Retrieves a date in jS M Y format.
+	 *
+	 * @param  string $date The date string to format.
+	 * @return string       The formatted date string.
+	 */
+	public function jSMY($date)
+	{
+		if ( ! is_null($date)) {
+			return date('jS M Y', strtotime($date));
+		}
+
+	}
+
+	/**
+	 * Retrieves a date in jS M Y H:i format.
+	 *
+	 * @param  string $date The date string to format.
+	 * @return string       The formatted date string.
+	 */
+	public function jSMYHi($date)
+	{
+		if ( ! is_null($date)) {
+			return date('jS M Y H:i', strtotime($date));
+		}
+
+	}
+
+	/**
 	 * Retrieves a date in M d format.
 	 *
 	 * @param  string $date The date string to format.
