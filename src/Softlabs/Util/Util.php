@@ -18,12 +18,12 @@ class Util
 
         // Return the default avatar if no email was provided.
         if (is_null($email) or empty($email)) {
-            return "http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&s=$size";
+            return "//www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&s=$size";
         }
 
         $md5Email = md5(strtolower(trim($email)));
 
-        return "http://www.gravatar.com/avatar/$md5Email?d=mm&s=$size";
+        return "//www.gravatar.com/avatar/$md5Email?d=mm&s=$size";
     }
 
     /**
@@ -69,7 +69,7 @@ class Util
     public function gravatar($email=null)
     {
         if(isset($email)) {
-            return 'http://www.gravatar.com/'.md5(strtolower(trim($email)));
+            return '//www.gravatar.com/'.md5(strtolower(trim($email)));
         }
 
         return 'https://en.gravatar.com/site/signup';
