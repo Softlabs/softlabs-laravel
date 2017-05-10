@@ -1,6 +1,6 @@
 <?php namespace Softlabs\Pagination;
 
-use Illuminate\View\Environment;
+use Illuminate\View\Factory;
 use Softlabs\Pagination\Paginator;
 
 class Factory
